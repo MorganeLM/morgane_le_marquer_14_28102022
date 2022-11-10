@@ -1,51 +1,82 @@
+import { ReactDropdownMenu } from "react-dropdown-menu-lmm";
+import {useState} from 'react';
+import { useDispatch } from 'react-redux';
+import departments from "../mock/departments";
+import states from "../mock/states";
+import {Calendar} from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import InputGoup from "./InputGroup";
+import { addEmployee } from "../redux/redux";
+
+
 function CreateEmployeeForm() {
+    //
+    const dispatch = useDispatch();
+    // initialize and store every input values
+    const [ firstName, setFirstName ] = useState("");
+    const [ lastName, setLastName ] = useState("");
+    const [ birthDate, setBirthDate ] = useState(new Date());
+    const [ startDate, setStartDate ] = useState(new Date());
+    const [ street, setStreet ] = useState("");
+    const [ city, setCity ] = useState("");
+    const [ state, setState ] = useState(states[0].name);
+    const [ zipCode, setZipCode ] = useState("");
+    const [ dept, setDept ] = useState(departments[0].name);
+   
+    const handleChangeDepartment = (value) => {
+        setDept(value);
+    }
+
+    const handleChangeState = (value) => {
+        setState(value);
+    }
+
     const saveEmployee = function(e){
         e.preventDefault()
-        console.log("hey")
+        dispatch(addEmployee({
+            firstName: firstName, 
+            lastName: lastName, 
+            dateOfBirth: birthDate, 
+            startDate: startDate,
+            street: street, 
+            city: city, 
+            zipCode: zipCode, 
+            state: state, 
+            departement: dept
+        }))
+        // display a modal with a sucess message
+        // setModalMessage("Employee " + firstName + " " + lastName + " created !")
+        // setModalVisibility(true)
+        // reset our form
+        e.target.reset()
     }
 
     return (
     <form action="#" id="create-employee" className="adding-form my-3">
-        <div>
-            <label htmlFor ="first-name" className="form-label">First Name</label>
-            <input type="text" id="first-name" className="form-control"/>
-        </div>
-        <div>
-            <label htmlFor ="last-name" className="form-label">Last Name</label>
-            <input type="text" id="last-name" className="form-control" />
-        </div>
-        <div>
-            <label htmlFor ="date-of-birth" className="form-label">Date of Birth</label>
-            <input id="date-of-birth" type="text" className="form-control" />
-        </div>
-        <div>
-            <label htmlFor ="start-date" className="form-label">Start Date</label>
-            <input id="start-date" type="text" className="form-control" />
-        </div>
+        <InputGoup name="First Name" setFunction={setFirstName} require="true"/>
+        <InputGoup name="Last Name" setFunction={setLastName} require="true"/>
+
+        <InputGoup name="Date of Birth" setFunction={setBirthDate} require="true"/>
+        <Calendar onChange={setBirthDate} value={birthDate} />
+
+        <InputGoup name="Start Date" setFunction={setStartDate} require="true"/>
+        <Calendar onChange={setStartDate} value={startDate} />
+
         <fieldset className="address">
             <legend>Address</legend>
-
-            <label htmlFor ="street" className="form-label">Street</label>
-            <input id="street" type="text" className="form-control" />
-
-            <label htmlFor ="city" className="form-label">City</label>
-            <input id="city" type="text" className="form-control" />
-
-            <label htmlFor ="state" className="form-label">State</label>
-            <select name="state" id="state" className="form-select"></select>
-
-            <label htmlFor ="zip-code" className="form-label">Zip Code</label>
-            <input id="zip-code" type="number" className="form-control" />
+            <InputGoup name="Street" setFunction={setStreet} require="true"/>
+            <InputGoup name="City" setFunction={setCity} require="true"/>        
+            <label htmlFor ="stateSelector" className="form-label">State</label>
+            <ReactDropdownMenu options={states} 
+                              onChange={handleChangeState} 
+                              id={'stateSelector'}/>
+            <InputGoup name="Zip Code" setFunction={setZipCode} require="true" type="number" /> 
         </fieldset>
         <div>
-            <label htmlFor ="department" className="form-label">Department</label>
-            <select name="department" id="department" className="form-select">
-                <option>Sales</option>
-                <option>Marketing</option>
-                <option>Engineering</option>
-                <option>Human Resources</option>
-                <option>Legal</option>
-            </select>
+            <label htmlFor ="departmentSelector" className="form-label">Department</label>
+            <ReactDropdownMenu options={departments} 
+                              onChange={handleChangeDepartment} 
+                              id={'departmentSelector'}/>
         </div>
         <div className="text-end mt-3">
             <button className="btn btn-primary" 
