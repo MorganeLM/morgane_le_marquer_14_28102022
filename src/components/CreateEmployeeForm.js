@@ -3,9 +3,8 @@ import {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import departments from "../mock/departments";
 import states from "../mock/states";
-import {Calendar} from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import InputGoup from "./InputGroup";
+import DateInputGoup from "./DateInputGroup";
 import { addEmployee } from "../redux/redux";
 
 
@@ -56,11 +55,15 @@ function CreateEmployeeForm() {
         <InputGoup name="First Name" setFunction={setFirstName} require="true"/>
         <InputGoup name="Last Name" setFunction={setLastName} require="true"/>
 
-        <InputGoup name="Date of Birth" setFunction={setBirthDate} require="true"/>
-        <Calendar onChange={setBirthDate} value={birthDate} />
+        <DateInputGoup name="Date of Birth" 
+                       selectedValue={birthDate} 
+                       setFunction={setBirthDate} 
+                       require="true" showTodayBtn={null}/>
 
-        <InputGoup name="Start Date" setFunction={setStartDate} require="true"/>
-        <Calendar onChange={setStartDate} value={startDate} />
+        <DateInputGoup name="Start Date" 
+                       selectedValue={startDate} 
+                       setFunction={setStartDate} 
+                       require="true" showTodayBtn="Aujourd'hui"/>
 
         <fieldset className="address">
             <legend>Address</legend>
