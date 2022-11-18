@@ -6,6 +6,8 @@ import states from "../mock/states";
 import InputGoup from "./InputGroup";
 import DateInputGoup from "./DateInputGroup";
 import { addEmployee } from "../redux/redux";
+import ModalWrapper from '../components/Modal';
+
 
 
 function CreateEmployeeForm() {
@@ -30,6 +32,14 @@ function CreateEmployeeForm() {
         setState(value);
     }
 
+     // modal variables
+     const [modalIsOpen, setModalIsOpen] = useState(false);
+     const [modalContent, setModalContent] = useState('');
+     const closeModal =()=>{
+         setModalIsOpen(false)
+     }
+
+     // add the employee to redux store and display the modal
     const saveEmployee = function(e){
         e.preventDefault()
         dispatch(addEmployee({
@@ -44,11 +54,11 @@ function CreateEmployeeForm() {
             departement: dept
         }))
         // display a modal with a sucess message
-        // setModalMessage("Employee " + firstName + " " + lastName + " created !")
-        // setModalVisibility(true)
-        // reset our form
+        setModalContent("Employee " + firstName + " " + lastName + " created !")
+        setModalIsOpen(true)
+        //reset our form
         e.target.reset()
-    }
+    }    
 
     return (
     <form action="#" id="create-employee" className="adding-form my-3">
@@ -83,24 +93,14 @@ function CreateEmployeeForm() {
         </div>
         <div className="text-end mt-3">
             <button className="btn btn-primary" 
-                    onClick={(e) => saveEmployee(e)} 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#confirmationModal">Save</button>
+                    onClick={(e) => saveEmployee(e)}>Save
+            </button>
         </div>
-       
-        <div className="modal fade" id="confirmationModal" tabIndex="-1" aria-labelledby="confirmation" aria-hidden="true">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-body p-5 mt-3 fs-5 text-center">
-                        Employee Created!
-                    </div>
-                    <div className="modal-footer border-0 pt-0">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+       <ModalWrapper content={modalContent} isOpen={modalIsOpen} close={closeModal}/>
     </form>)
 }
   
 export default CreateEmployeeForm;
+
+
