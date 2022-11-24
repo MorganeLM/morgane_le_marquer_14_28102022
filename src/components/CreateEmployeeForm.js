@@ -7,8 +7,7 @@ import InputGoup from "./InputGroup";
 import DateInputGoup from "./DateInputGroup";
 import { addEmployee } from "../redux/redux";
 import ModalWrapper from '../components/Modal';
-
-
+import moment from 'moment';
 
 function CreateEmployeeForm() {
     //
@@ -45,8 +44,8 @@ function CreateEmployeeForm() {
         dispatch(addEmployee({
             firstName: firstName, 
             lastName: lastName, 
-            dateOfBirth: birthDate, 
-            startDate: startDate,
+            dateOfBirth: moment(birthDate).format('DD/MM/YYYY'), 
+            startDate: moment(startDate).format('DD/MM/YYYY'),
             street: street, 
             city: city, 
             zipCode: zipCode, 
@@ -57,7 +56,7 @@ function CreateEmployeeForm() {
         setModalContent("Employee " + firstName + " " + lastName + " created !")
         setModalIsOpen(true)
         //reset our form
-        e.target.reset()
+        //e.target.reset()
     }    
 
     return (

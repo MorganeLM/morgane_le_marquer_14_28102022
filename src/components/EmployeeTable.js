@@ -4,8 +4,8 @@ import { useTable } from 'react-table';
 
 export default function EmployeeTable() {
     
-    const employees = useSelector(state => state.employees);
-    console.log('employees', employees)
+    const data = useSelector(state => state.employees);
+    console.log('employees', data)
 
     const columns = [
         { Header: "First Name", accessor: "firstName" },
@@ -19,11 +19,11 @@ export default function EmployeeTable() {
         { Header: "Zip Code", accessor: "zipCode" },
     ];
 
-    const tableInstance = useTable({ columns, employees })
+    const tableInstance = useTable({ columns, data })
     
     return(
         <table>
-            
+
         </table>
     )
   }
