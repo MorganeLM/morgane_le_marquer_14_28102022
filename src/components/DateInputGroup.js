@@ -8,7 +8,7 @@ export default function DateInputGoup(props) {
         <DatePicker id={props.name} className="form-control"
                     required={props.required ? true : false}
                     selected={props.selectedValue} 
-                    onChange={(event) => {props.setFunction(event.target.value)}} 
+                    onChange={(date) => {props.setFunction(date)}} 
                     dateFormat="dd/MM/yyyy"
                     placeholderText="jj/MM/aaaa"
                     showMonthDropdown

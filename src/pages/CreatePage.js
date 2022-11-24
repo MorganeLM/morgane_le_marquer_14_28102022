@@ -2,12 +2,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CreateEmployeeForm from '../components/CreateEmployeeForm';
 
-//import { useSelector } from 'react-redux';
-
-
 function AddingPage() {
-  //const employees = useSelector(state => state.employees);
-  //console.log('employees', employees)
 
   return (
     <div>

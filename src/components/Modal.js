@@ -21,9 +21,8 @@ export default function ModalWrapper(props) {
             <button className="btn btn-dark float-end" onClick={props.close}>x</button>
             <p className='text-center fs-4 my-3'>{props.content}</p>
             <div className='d-flex justify-content-evenly py-3'>
-                <Link to="/"  className="btn btn-outline-primary">
-                    <i className="fa fa-user-circle"></i> Add an Othen Employee
-                </Link>
+                <button className="btn btn-outline-primary" 
+                        onClick={props.close}>Add an Othen Employee</button>
                 <Link to="/employee-list"  className="btn btn-outline-success">
                     <i className="fa fa-user-circle"></i> View Current Employees
                 </Link>

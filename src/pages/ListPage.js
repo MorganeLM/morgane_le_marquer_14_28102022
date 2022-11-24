@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
+import EmployeeTable from '../components/EmployeeTable';
 
 function ListPage() {
 
@@ -8,6 +8,7 @@ function ListPage() {
     <div>
       <Header />
       <main>
+        <EmployeeTable />
       </main>
       <Footer />
     </div>

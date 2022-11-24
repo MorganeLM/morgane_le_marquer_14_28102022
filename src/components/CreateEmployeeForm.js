@@ -16,8 +16,8 @@ function CreateEmployeeForm() {
     // initialize and store every input values
     const [ firstName, setFirstName ] = useState("");
     const [ lastName, setLastName ] = useState("");
-    const [ birthDate, setBirthDate ] = useState(new Date());
-    const [ startDate, setStartDate ] = useState(new Date());
+    const [ birthDate, setBirthDate ] = useState(null);
+    const [ startDate, setStartDate ] = useState(null);
     const [ street, setStreet ] = useState("");
     const [ city, setCity ] = useState("");
     const [ state, setState ] = useState(states[0].name);
