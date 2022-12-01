@@ -48,3 +48,24 @@ fieldset{
 .ReactModal__Overlay--after-open{
   background-color: rgba(0, 0, 0, 0.6) !important;
 }
+
+#employees-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+
+#employees-table td, #employees-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#employees-table tr:nth-child(even){background-color: #f7f7f7;}
+
+#employees-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(54, 75, 113);
+  color: white;
+}

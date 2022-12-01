@@ -1,17 +1,14 @@
 import { useSelector } from 'react-redux';
-import { useMemo, useState, useEffect } from "react";
-import Table from "./Table";
+import Table from "./Table/Table";
 
 export default function EmployeeTable() {
-    
     const data = useSelector(state => state.employees);
-    console.log('employees', data)
 
     const columns = [
         { Header: "First Name", accessor: "firstName" },
         { Header: "Last Name", accessor: "lastName" },
         { Header: "Start Date", accessor: "startDate" },
-        { Header: "Department", accessor: "departement" },
+        { Header: "Department", accessor: "department" },
         { Header: "Date of Birth", accessor: "dateOfBirth" },
         { Header: "Street", accessor: "street" },
         { Header: "City", accessor: "city" },
@@ -20,7 +17,8 @@ export default function EmployeeTable() {
     ];
     
     return(
-    <div>
+    <div className='mx-auto pb-3'>
+        <h1 className='text-center my-3 fs-2'>Current Employees</h1>
         <Table columns={columns} data={data} />
     </div>
     )

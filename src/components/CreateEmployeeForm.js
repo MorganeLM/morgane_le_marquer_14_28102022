@@ -21,10 +21,10 @@ function CreateEmployeeForm() {
     const [ city, setCity ] = useState("");
     const [ state, setState ] = useState(states[0].name);
     const [ zipCode, setZipCode ] = useState("");
-    const [ dept, setDept ] = useState(departments[0].name);
+    const [ department, setDepartment ] = useState(departments[0].name);
    
     const handleChangeDepartment = (value) => {
-        setDept(value);
+        setDepartment(value);
     }
 
     const handleChangeState = (value) => {
@@ -50,7 +50,7 @@ function CreateEmployeeForm() {
             city: city, 
             zipCode: zipCode, 
             state: state, 
-            departement: dept
+            department: department
         }))
         // display a modal with a sucess message
         setModalContent("Employee " + firstName + " " + lastName + " created !")
