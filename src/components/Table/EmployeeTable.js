@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import Table from "./Table/Table";
+import { Link } from 'react-router-dom';
+import Table from "./Table";
 
 export default function EmployeeTable() {
     const data = useSelector(state => state.employees);
@@ -18,8 +19,11 @@ export default function EmployeeTable() {
     
     return(
     <div className='mx-auto pb-3'>
-        <h1 className='text-center my-3 fs-2'>Current Employees</h1>
+        <h1 className='fs-2 text-center py-3 mt-3'>Current Employees</h1>
         <Table columns={columns} data={data} />
+        <Link to="/"  className="nav-link text-center mt-3">
+                      <i className="fa fa-user-circle"></i> Home
+        </Link>
     </div>
     )
   }

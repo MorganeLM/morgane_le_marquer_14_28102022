@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CreateEmployeeForm from '../components/CreateEmployeeForm';
+import CreateEmployeeForm from '../components/Form/CreateEmployeeForm';
 
 function AddingPage() {
 

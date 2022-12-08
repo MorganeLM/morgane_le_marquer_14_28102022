@@ -67,8 +67,8 @@ function Header() {
       mockData.forEach(data => dispatch(addEmployee({
         firstName: data.firstName,
         lastName: data.lastName,
-        dateOfBirth: moment(data.birthDate).format('DD/MM/YYYY'),
-        startDate: moment(data.startDate).format('DD/MM/YYYY'),
+        dateOfBirth: moment(data.birthDate, 'DD/MM/YYYY').format('DD/MM/YYYY'),
+        startDate: moment(data.startDate, 'DD/MM/YYYY').format('DD/MM/YYYY'),
         street: data.street,
         city: data.city,
         zipCode: data.zipCode,
@@ -79,7 +79,7 @@ function Header() {
 
     return (
       <header className="container-fluid p-0">
-        <nav className="navbar navbar-expand-lg navbar-dark">
+        <nav className="navbar navbar-expand-lg navbar-light">
           <Link to="/"  className="navbar-brand ps-3 fw-bold">HRnet</Link>
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +99,7 @@ function Header() {
                 </li>
               </ul>
               <div>
-                <button className="btn btn-dark" onClick={() => addData()}>+ data</button>
+                <button className="btn btn-smbtn-outline-dark" onClick={() => addData()}>+ data</button>
               </div>
             </div>
           </div> 

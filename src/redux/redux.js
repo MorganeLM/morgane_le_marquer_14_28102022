@@ -2,7 +2,13 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
-import { persistReducer } from "redux-persist";
+import { persistReducer,
+        FLUSH,
+        REHYDRATE,
+        PAUSE,
+        PERSIST,
+        PURGE,
+        REGISTER, } from "redux-persist";
 
 // ----------------------- EMPLOYEE SLICE (employee list management) -------------------------------
 const employeeSlice = createSlice({
@@ -28,6 +34,12 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-    reducer: persistedReducer
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 })
 

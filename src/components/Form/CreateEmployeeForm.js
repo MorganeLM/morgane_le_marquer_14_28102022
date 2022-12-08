@@ -1,12 +1,12 @@
 import { ReactDropdownMenu } from "react-dropdown-menu-lmm";
 import {useState} from 'react';
 import { useDispatch } from 'react-redux';
-import departments from "../mock/departments";
-import states from "../mock/states";
+import departments from "../../mock/departments";
+import states from "../../mock/states";
 import InputGoup from "./InputGroup";
 import DateInputGoup from "./DateInputGroup";
-import { addEmployee } from "../redux/redux";
-import ModalWrapper from '../components/Modal';
+import { addEmployee } from "../../redux/redux";
+import ModalWrapper from '../Modal';
 import moment from 'moment';
 
 function CreateEmployeeForm() {

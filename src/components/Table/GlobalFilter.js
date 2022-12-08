@@ -1,10 +1,13 @@
 function GlobalFilter({filter, setFilter}) {
 
-    return (
-        <input  className="mb-2"
+return (
+    <>
+        <label className="form-label mb-0">Search:</label>
+        <input  className="ms-2 form-control form-control-sm"
                 value={filter || ''}
                 onChange={e => setFilter(e.target.value)}
-                placeholder={"Search ..."} />
+                placeholder={"name, department, city ..."} />
+    </>
   )}
   
   export default GlobalFilter;
