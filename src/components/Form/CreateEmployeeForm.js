@@ -54,9 +54,7 @@ function CreateEmployeeForm() {
         }))
         // display a modal with a sucess message
         setModalContent("Employee " + firstName + " " + lastName + " created !")
-        setModalIsOpen(true)
-        //reset our form
-        //e.target.reset()
+        setModalIsOpen(true);
     }    
 
     return (
@@ -92,6 +90,8 @@ function CreateEmployeeForm() {
         </div>
         <div className="text-end mt-3">
             <button className="btn btn-primary" 
+                    disabled={!firstName || !lastName || !birthDate || !startDate || !street || !city || !zipCode 
+                        || !state.abbreviation || !department.name}
                     onClick={(e) => saveEmployee(e)}>Save
             </button>
         </div>

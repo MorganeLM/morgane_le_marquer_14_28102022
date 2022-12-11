@@ -142,13 +142,13 @@ function Header() {
             <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link to="/employee-list"  className="nav-link">
-                      <i className="fa fa-user-circle"></i> View Current Employees
+                  <Link to="/"  className="nav-link">
+                      <i className="fa fa-user-circle"></i> Create-Employee
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/"  className="nav-link">
-                      <i className="fa fa-user-circle"></i> Add a New Employee
+                  <Link to="/employee-list"  className="nav-link">
+                      <i className="fa fa-user-circle"></i> Employee-List
                   </Link>
                 </li>
               </ul>
