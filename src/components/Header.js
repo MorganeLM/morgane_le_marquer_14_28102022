@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { addEmployee } from "../redux/redux";
-import moment from 'moment';
 
 function Header() {
     const dispatch = useDispatch();
@@ -15,7 +14,7 @@ function Header() {
       "street": "1526 Broadway Blvd",
       "city": "Nashville",
       "zipCode": "37201",
-      "state": "Tennessee",
+      "state": "TN",
       "department": "Engineering"
     },
     {
@@ -26,7 +25,7 @@ function Header() {
       "street": "123 Main Street",
       "city": "Nashville",
       "zipCode": "37201",
-      "state": "Tennessee",
+      "state": "TN",
       "department": "Legal"
     },
     {
@@ -37,7 +36,7 @@ function Header() {
       "street": "84 Prudence Street",
       "city": "Detroit",
       "zipCode": "48219",
-      "state": "Michigan",
+      "state": "MI",
       "department": "Engineering"
     },
     {
@@ -48,7 +47,7 @@ function Header() {
       "street": "37 Pyramid Valley Road",
       "city": "Keokuk",
       "zipCode": "52632",
-      "state": "Iowa",
+      "state": "IA",
       "department": "Marketing"
     },
     {
@@ -59,7 +58,62 @@ function Header() {
       "street": "29 Pinnickinick Street",
       "city": "Brinnon",
       "zipCode": "98320",
-      "state": "Washington",
+      "state": "WA",
+      "department": "Human Resources"
+    },
+    {
+      "firstName": "Johnny",
+      "lastName": "Down",
+      "dateOfBirth": "18/01/1955",
+      "startDate": "01/10/2010",
+      "street": "16 Broadway Blvd",
+      "city": "Nashville",
+      "zipCode": "37201",
+      "state": "TN",
+      "department": "Legal"
+    },
+    {
+      "firstName": "Mary",
+      "lastName": "Bond",
+      "dateOfBirth": "10/06/1986",
+      "startDate": "01/01/2012",
+      "street": "1 Main Street",
+      "city": "Nashville",
+      "zipCode": "37201",
+      "state": "TN",
+      "department": "Engineering"
+    },
+    {
+      "firstName": "Maria",
+      "lastName": "De Santos",
+      "dateOfBirth": "02/06/1978",
+      "startDate": "01/09/2005",
+      "street": "1 Prudence Street",
+      "city": "Detroit",
+      "zipCode": "48219",
+      "state": "MI",
+      "department": "Marketing"
+    },
+    {
+      "firstName": "Dylan",
+      "lastName": "Roosevelt",
+      "dateOfBirth": "28/06/1978",
+      "startDate": "01/09/2005",
+      "street": "378 Pyramid Valley Road",
+      "city": "Keokuk",
+      "zipCode": "52632",
+      "state": "IA",
+      "department": "Human Resources"
+    },
+    {
+      "firstName": "Nathalie",
+      "lastName": "Portwoman",
+      "dateOfBirth": "11/02/1988",
+      "startDate": "07/09/2005",
+      "street": "29 Pinnickinick Street",
+      "city": "Brinnon",
+      "zipCode": "98320",
+      "state": "WA",
       "department": "Human Resources"
     }]
 
@@ -67,8 +121,8 @@ function Header() {
       mockData.forEach(data => dispatch(addEmployee({
         firstName: data.firstName,
         lastName: data.lastName,
-        dateOfBirth: moment(data.birthDate, 'DD/MM/YYYY').format('DD/MM/YYYY'),
-        startDate: moment(data.startDate, 'DD/MM/YYYY').format('DD/MM/YYYY'),
+        dateOfBirth: data.dateOfBirth,
+        startDate: data.startDate,
         street: data.street,
         city: data.city,
         zipCode: data.zipCode,

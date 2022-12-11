@@ -41,7 +41,7 @@ export default function Table({ columns, data }) {
             <select className='form-select mx-1 form-select-sm'
                     value={pageSize}
                     onChange={e => setPageSize(Number(e.target.value))}>
-                {[10, 25, 50].map(pageSize => (
+                {[10, 25, 50, 100].map(pageSize => (
                   <option key={pageSize} value={pageSize}>
                      {pageSize}
                   </option>

@@ -17,7 +17,8 @@ export default function ModalWrapper(props) {
     
     return(
         <Modal isOpen={props.isOpen} 
-               style={customStyles}>
+               style={customStyles}
+               ariaHideApp={false}>
             <button className="btn btn-dark float-end" onClick={props.close}>x</button>
             <p className='text-center fs-4 my-3'>{props.content}</p>
             <div className='d-flex justify-content-evenly py-3'>

@@ -4,6 +4,7 @@ import Table from "./Table";
 
 export default function EmployeeTable() {
     const data = useSelector(state => state.employees);
+    console.log(data)
 
     const columns = [
         { Header: "First Name", accessor: "firstName" },

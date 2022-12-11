@@ -19,16 +19,16 @@ function CreateEmployeeForm() {
     const [ startDate, setStartDate ] = useState(null);
     const [ street, setStreet ] = useState("");
     const [ city, setCity ] = useState("");
-    const [ state, setState ] = useState(states[0].name);
+    const [ state, setState ] = useState(states[0]);
     const [ zipCode, setZipCode ] = useState("");
-    const [ department, setDepartment ] = useState(departments[0].name);
+    const [ department, setDepartment ] = useState(departments[0]);
    
-    const handleChangeDepartment = (value) => {
-        setDepartment(value);
+    const handleChangeDepartment = (option) => {
+        setDepartment(option);
     }
 
-    const handleChangeState = (value) => {
-        setState(value);
+    const handleChangeState = (option) => {
+        setState(option);
     }
 
      // modal variables
@@ -49,8 +49,8 @@ function CreateEmployeeForm() {
             street: street, 
             city: city, 
             zipCode: zipCode, 
-            state: state, 
-            department: department
+            state: state.abbreviation, 
+            department: department.name
         }))
         // display a modal with a sucess message
         setModalContent("Employee " + firstName + " " + lastName + " created !")
@@ -80,15 +80,15 @@ function CreateEmployeeForm() {
             <InputGoup name="City" setFunction={setCity} require="true"/>        
             <label htmlFor ="stateSelector" className="form-label">State</label>
             <ReactDropdownMenu options={states} 
-                              onChange={handleChangeState} 
-                              id={'stateSelector'}/>
+                               onChange={handleChangeState} 
+                               id={'stateSelector'}/>
             <InputGoup name="Zip Code" setFunction={setZipCode} require="true" type="number" /> 
         </fieldset>
         <div>
             <label htmlFor ="departmentSelector" className="form-label">Department</label>
             <ReactDropdownMenu options={departments} 
-                              onChange={handleChangeDepartment} 
-                              id={'departmentSelector'}/>
+                               onChange={handleChangeDepartment} 
+                               id={'departmentSelector'}/>
         </div>
         <div className="text-end mt-3">
             <button className="btn btn-primary" 
